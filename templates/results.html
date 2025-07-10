@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PsychoPredictor AI – Results</title>
+  <link rel="stylesheet" href="/static/h_color_style.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+ <header class="navbar">
+  <div class="nav-container">
+    <div class="nav-left logo-placeholder">Ψ</div>
+    <h1 class="nav-title nav-center">PsychoPredictor AI</h1>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#get-started">Get Started</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <h2>Your Psychological Analysis Results</h2>
+      <p>Based on your responses, here’s a personalized breakdown of your mental well-being.</p>
+    </div>
+  </section>
+
+  <section class="form-wrapper container">
+    <div class="result-block">
+      <h2>🧠 Depression Level: <span class="highlight">{{ depression }}</span></h2>
+      <p><strong>Recommendation:</strong> {{ recommendation["dep"] }}</p>
+    </div>
+    <div class="chart-wrapper">
+  <h3>Depression Severity Scale</h3>
+  <canvas id="depressionChart" height="150"></canvas>
+   </div>
+    <div class="result-block">
+      <h2>😊 Life Satisfaction Level: <span class="highlight">{{ satisfaction }}</span></h2>
+      <p><strong>Recommendation:</strong> {{ recommendation["sat"] }}</p>
+    </div>
+  <div class="chart-wrapper">
+  <h3>Life Satisfaction Levels</h3>
+  <canvas id="satisfactionChart" height="150"></canvas>
+  </div>
+    <div class="result-block">
+      <h2>🧬 Personality Level: <span class="highlight">{{ personality }}</span></h2>
+      <p><strong>Recommendation:</strong> {{ recommendation["big"] }}</p>
+    </div>
+    <div class="chart-wrapper">
+  <h3>Personality Trait Radar</h3>
+  <canvas id="personalityChart" height="200"></canvas>
+</div>
+    <div style="text-align:center; margin-top: 2rem;">
+      <a href="/" class="button">🔁 Take Again</a>
+    </div>
+    <div style="margin-top: 2rem;">
+      <a href="/" class="button">🏠 Back to Home</a>
+      <button onclick="window.print()" class="button">📄 Download PDF</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2025 PsychoPredictor AI · Designed with care for your mind
+  </footer>
+<!-- Chart.js Scripts -->
+  <script>
+    const depression = "{{ depression }}";
+    const satisfaction = "{{ satisfaction }}";
+    const personality = "{{ personality }}";
+
+    // Depression Chart
+    const depCtx = document.getElementById('depressionChart').getContext('2d');
+    new Chart(depCtx, {
+      type: 'bar',
+      data: {
+        labels: ["Normal", "Mild", "Moderate", "Severe", "Extremely Severe"],
+        datasets: [{
+          label: "Your Result",
+          data: [
+            depression === "normal" ? 1 : 0,
+            depression === "mild" ? 1 : 0,
+            depression === "moderate" ? 1 : 0,
+            depression === "severe" ? 1 : 0,
+            depression === "extremely severe" ? 1 : 0
+          ],
+          backgroundColor: "#ff4e50"
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        scales: { x: { display: false }, y: { beginAtZero: true } },
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    // Life Satisfaction Chart
+    const satCtx = document.getElementById('satisfactionChart').getContext('2d');
+    new Chart(satCtx, {
+      type: 'bar',
+      data: {
+        labels: ["Dissatisfied", "Below Avg", "Average", "Above Avg", "High"],
+        datasets: [{
+          label: "Life Satisfaction",
+          data: [
+            satisfaction === "dissatisfied" ? 1 : 0,
+            satisfaction === "below average" ? 1 : 0,
+            satisfaction === "average" ? 1 : 0,
+            satisfaction === "above average" ? 1 : 0,
+            satisfaction === "high" ? 1 : 0
+          ],
+          backgroundColor: "#4facfe"
+        }]
+      },
+      options: {
+        scales: { y: { display: false }, x: { beginAtZero: true } },
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    // Personality Radar Chart
+    const bigCtx = document.getElementById('personalityChart').getContext('2d');
+    new Chart(bigCtx, {
+      type: 'radar',
+      data: {
+        labels: ["Openness", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism"],
+        datasets: [{
+          label: personality + " Personality",
+          data: [
+            personality === "low" ? 2 : personality === "moderate" ? 4 : 6,
+            3, 4, 3, 4
+          ],
+          backgroundColor: "rgba(72, 133, 237, 0.2)",
+          borderColor: "#4885ed",
+          pointBackgroundColor: "#4885ed"
+        }]
+      },
+      options: {
+        scales: {
+          r: {
+            beginAtZero: true,
+            max: 7,
+            ticks: { stepSize: 1 }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

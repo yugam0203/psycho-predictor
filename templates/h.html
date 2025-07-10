@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PsychoPredictor AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/h_color_style.css" />
+
+<body>
+ <header class="navbar">
+  <div class="nav-container">
+    <div class="nav-left logo-placeholder">Ψ</div>
+    <h1 class="nav-title">PsychoPredictor AI</h1>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#get-started">Get Started</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+<!--    <header class="navbar">
+  <div class="nav-left">
+    <div class="logo-placeholder">💜</div>
+  </div>
+
+  <div class="nav-center">
+    <h1>PsychoPredictor AI</h1>
+  </div>
+
+  <div class="nav-right">
+    <div class="logo-placeholder">🧠</div>
+  </div>
+</header>
+<nav class="nav-links">
+  <a href="#about">About</a>
+  <a href="#get-started">Get Started</a>
+  <a href="#contact">Contact</a>
+</nav>    -->
+
+
+  <section class="hero">
+  <div class="hero-overlay">
+    <h2>AI That Cares How You Feel</h2>
+    <p>PsychoPredictor AI uses machine learning to assess and classify emotional states like happiness and depression.</p>
+  </div>
+</section>
+  <main class="container">
+    <section id="about">
+      <h2>About</h2>
+      <p>PsychoPredictor AI is a cutting-edge mental wellness platform that harnesses the power of machine learning to assess and classify emotional states — helping you understand whether a person is likely feeling happy or depressed based on their responses.
+
+Built on advanced psychological models and trained with real-world data, our tool aims to bridge the gap between emotional well-being and technology. Whether you’re a student, professional, researcher, or simply someone interested in self-reflection, PsychoPredictor AI offers fast, intelligent, and confidential insights into mental health.
+
+We believe early awareness is the first step toward better well-being. While our tool is not a replacement for professional diagnosis, it serves as a supportive system to raise awareness and encourage mental health mindfulness.</p>
+    </section>
+    <section id="get-started">
+      <h2>Start Your Assessment</h2>
+      <section class="form-wrapper">
+      <form id="questionnaire-form" action="/predict" method="post">
+   
+        <div class="step active">
+          <!--label for="gender">Your Gender:</label-->
+           <p>
+    The <strong>PsychoPredictor AI</strong> platform utilizes three scientifically validated psychological instruments to assess your mental well-being with accuracy and insight. These scales allow the system to provide detailed predictions and personalized recommendations based on your self-reported responses.
+  </p>
+
+  <h3>🧠 DASS-21 Depression Subscale</h3>
+  <p>
+    The <strong>DASS-21</strong> (Depression, Anxiety, and Stress Scales – 21 items) is a widely used self-assessment tool designed to measure emotional distress. Our application specifically leverages the <em>Depression subscale</em>, which includes 7 items aimed at detecting symptoms such as low mood, lack of motivation, sadness, and pessimism. Based on your score, your depression level is categorized into five clinical severity levels: <em>Normal</em>, <em>Mild</em>, <em>Moderate</em>, <em>Severe</em>, or <em>Extremely Severe</em>. This scale is backed by decades of psychometric research and clinical validation.
+  </p>
+
+  <h3>😊 Satisfaction With Life Scale (SWLS)</h3>
+  <p>
+    The <strong>SWLS</strong>, developed by Diener et al. (1985), measures your overall judgment about life satisfaction. It includes 5 questions that assess how well your life aligns with your own standards and expectations. Based on your score, the system classifies your satisfaction as <em>Dissatisfied</em>, <em>Below Average</em>, <em>Average</em>, <em>Above Average</em>, or <em>High</em>. This simple yet powerful scale is widely recognized in positive psychology and life evaluation research.
+  </p>
+
+  <h3>🧬 Big Five Personality Inventory (BFI)</h3>
+  <p>
+    The <strong>Big Five Inventory (BFI)</strong> is one of the most trusted models in personality psychology. It evaluates five core dimensions of personality: <strong>Openness</strong>, <strong>Conscientiousness</strong>, <strong>Extraversion</strong>, <strong>Agreeableness</strong>, and <strong>Neuroticism</strong>. Our system uses selected questions adapted from the <em>BFI-44</em> to compute a personality index, which is then interpreted as <em>Low</em>, <em>Moderate</em>, or <em>High</em>. These insights help reflect your behavioral tendencies, emotional responsiveness, and interaction styles.
+  </p>
+
+  <p>
+    By integrating these three powerful instruments—<em>DASS-21</em>, <em>SWLS</em>, and <em>BFI</em>—<strong>PsychoPredictor AI</strong> provides a holistic view of your emotional health, well-being, and personality profile. These insights can guide self-awareness, early intervention, or support seeking behavior.
+  </p>
+  <p><strong>Ready to begin? Hit 'Next'.</strong></p>
+          <button type="button" class="next">Next</button>
+        </div>
+        <div class="step">
+          <label>I find it hard to wind down:</label>
+          <div class="options">
+            <label><input type="radio" name="q1" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q1" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q1" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q1" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+          <label>I am aware of dryness of my mouth:</label>
+          <div class="options">
+            <label><input type="radio" name="q2" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q2" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q2" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q2" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+          <label>I don't experience any positive feeling at all:</label>
+          <div class="options">
+            <label><input type="radio" name="q3" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q3" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q3" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q3" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+          <label>I experience breathing difficulty(e.g., excessively rapid breathing, breathlessness in the absence of physical exertion.):</label>
+          <div class="options">
+            <label><input type="radio" name="q4" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q4" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q4" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q4" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+          <label>I find it difficult to work up the initiative to do things:</label>
+          <div class="options">
+            <label><input type="radio" name="q5" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q5" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q5" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q5" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+           <label>I tend to over-react to situations:</label>
+          <div class="options">
+            <label><input type="radio" name="q6" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q6" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q6" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q6" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+          <label>I experience trembling(e.g., in the hands):</label>
+          <div class="options">
+            <label><input type="radio" name="q7" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q7" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q7" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q7" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+          <label>I feel that i am using a lot of nervous energy:</label>
+          <div class="options">
+            <label><input type="radio" name="q8" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q8" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q8" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q8" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+          <label>I am worried about situations in which I might panic and make a fool of myself:</label>
+          <div class="options">
+            <label><input type="radio" name="q9" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q9" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q9" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q9" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+          <label>I feel that I have nothing to look forward to:</label>
+          <div class="options">
+            <label><input type="radio" name="q10" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q10" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q10" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q10" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+          <label>I find myself getting agitated:</label>
+          <div class="options">
+            <label><input type="radio" name="q11" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q11" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q11" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q11" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+          <label>I find it difficult to relax:</label>
+          <div class="options">
+            <label><input type="radio" name="q12" value="0"> 0 - Did not apply to me at all</label>
+            <label><input type="radio" name="q12" value="1"> 1 - Applied to me to some degree</label>
+            <label><input type="radio" name="q12" value="2"> 2 - Applied to me to a considerable degree</label>
+            <label><input type="radio" name="q12" value="3"> 3 - Applied to me very much or most of the time</label>
+          </div>
+
+              
+          <label>I feel down-hearted and blue:</label>
+<div class="options">
+  <label><input type="radio" name="q13" value="0"> 0 - Did not apply to me at all</label>
+  <label><input type="radio" name="q13" value="1"> 1 - Applied to me to some degree</label>
+  <label><input type="radio" name="q13" value="2"> 2 - Applied to me to a considerable degree</label>
+  <label><input type="radio" name="q13" value="3"> 3 - Applied to me very much or most of the time</label>
+</div>
+
+<label>I am intolerant of anything that keeps me from getting on with what I was doing:</label>
+<div class="options">
+  <label><input type="radio" name="q14" value="0"> 0 - Did not apply to me at all</label>
+  <label><input type="radio" name="q14" value="1"> 1 - Applied to me to some degree</label>
+  <label><input type="radio" name="q14" value="2"> 2 - Applied to me to a considerable degree</label>
+  <label><input type="radio" name="q14" value="3"> 3 - Applied to me very much or most of the time</label>
+</div>
+
+<label>I feel I am close to panicking:</label>
+<div class="options">
+  <label><input type="radio" name="q15" value="0"> 0 - Did not apply to me at all</label>
+  <label><input type="radio" name="q15" value="1"> 1 - Applied to me to some degree</label>
+  <label><input type="radio" name="q15" value="2"> 2 - Applied to me to a considerable degree</label>
+  <label><input type="radio" name="q15" value="3"> 3 - Applied to me very much or most of the time</label>
+</div>
+
+<label>I am unable to become enthusiastic about anything:</label>
+<div class="options">
+  <label><input type="radio" name="q16" value="0"> 0 - Did not apply to me at all</label>
+  <label><input type="radio" name="q16" value="1"> 1 - Applied to me to some degree</label>
+  <label><input type="radio" name="q16" value="2"> 2 - Applied to me to a considerable degree</label>
+  <label><input type="radio" name="q16" value="3"> 3 - Applied to me very much or most of the time</label>
+</div>
+
+<label>I feel I am not worth much as a person:</label>
+<div class="options">
+  <label><input type="radio" name="q17" value="0"> 0 - Did not apply to me at all</label>
+  <label><input type="radio" name="q17" value="1"> 1 - Applied to me to some degree</label>
+  <label><input type="radio" name="q17" value="2"> 2 - Applied to me to a considerable degree</label>
+  <label><input type="radio" name="q17" value="3"> 3 - Applied to me very much or most of the time</label>
+</div>
+
+<label>I feel that I was rather touchy:</label>
+<div class="options">
+  <label><input type="radio" name="q18" value="0"> 0 - Did not apply to me at all</label>
+  <label><input type="radio" name="q18" value="1"> 1 - Applied to me to some degree</label>
+  <label><input type="radio" name="q18" value="2"> 2 - Applied to me to a considerable degree</label>
+  <label><input type="radio" name="q18" value="3"> 3 - Applied to me very much or most of the time</label>
+</div>
+
+<label>I am aware of the action of my heart in the absence of physical exertion (e.g., sense of heart rate increase, heart missing a beat):</label>
+<div class="options">
+  <label><input type="radio" name="q19" value="0"> 0 - Did not apply to me at all</label>
+  <label><input type="radio" name="q19" value="1"> 1 - Applied to me to some degree</label>
+  <label><input type="radio" name="q19" value="2"> 2 - Applied to me to a considerable degree</label>
+  <label><input type="radio" name="q19" value="3"> 3 - Applied to me very much or most of the time</label>
+</div>
+
+<label>I feel scared without any good reason:</label>
+<div class="options">
+  <label><input type="radio" name="q20" value="0"> 0 - Did not apply to me at all</label>
+  <label><input type="radio" name="q20" value="1"> 1 - Applied to me to some degree</label>
+  <label><input type="radio" name="q20" value="2"> 2 - Applied to me to a considerable degree</label>
+  <label><input type="radio" name="q20" value="3"> 3 - Applied to me very much or most of the time</label>
+</div>
+
+<label>I feel that life is meaningless:</label>
+<div class="options">
+  <label><input type="radio" name="q21" value="0"> 0 - Did not apply to me at all</label>
+  <label><input type="radio" name="q21" value="1"> 1 - Applied to me to some degree</label>
+  <label><input type="radio" name="q21" value="2"> 2 - Applied to me to a considerable degree</label>
+  <label><input type="radio" name="q21" value="3"> 3 - Applied to me very much or most of the time</label>
+</div>
+
+<label>In most ways, my life is close to my ideal:</label>
+<div class="options">
+<label><input type="radio" name="q22" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q22" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q22" value="3"> 3 - Slightly Disagree</label>
+<label><input type="radio" name="q22" value="4"> 4 - Neutral</label>
+<label><input type="radio" name="q22" value="5"> 5 - Slightly Agree</label>
+<label><input type="radio" name="q22" value="6"> 6 - Agree</label>
+<label><input type="radio" name="q22" value="7"> 7 - Strongly Agree</label>
+</div>
+
+<label>The conditions of my life are excellent:</label>
+<div class="options">
+<label><input type="radio" name="q23" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q23" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q23" value="3"> 3 - Slightly Disagree</label>
+<label><input type="radio" name="q23" value="4"> 4 - Neutral</label>
+<label><input type="radio" name="q23" value="5"> 5 - Slightly Agree</label>
+<label><input type="radio" name="q23" value="6"> 6 - Agree</label>
+<label><input type="radio" name="q23" value="7"> 7 - Strongly Agree</label>
+</div>
+
+<label>I am satisfied with my life:</label>
+<div class="options">
+<label><input type="radio" name="q24" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q24" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q24" value="3"> 3 - Slightly Disagree</label>
+<label><input type="radio" name="q24" value="4"> 4 - Neutral</label>
+<label><input type="radio" name="q24" value="5"> 5 - Slightly Agree</label>
+<label><input type="radio" name="q24" value="6"> 6 - Agree</label>
+<label><input type="radio" name="q24" value="7"> 7 - Strongly Agree</label>
+</div>
+
+<label>So far, I have gotten the important things I want in life:</label>
+<div class="options">
+<label><input type="radio" name="q25" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q25" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q25" value="3"> 3 - Slightly Disagree</label>
+<label><input type="radio" name="q25" value="4"> 4 - Neutral</label>
+<label><input type="radio" name="q25" value="5"> 5 - Slightly Agree</label>
+<label><input type="radio" name="q25" value="6"> 6 - Agree</label>
+<label><input type="radio" name="q25" value="7"> 7 - Strongly Agree</label>
+</div>
+
+<label>If I could live my life over, I would change almost nothing:</label>
+<div class="options">
+<label><input type="radio" name="q26" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q26" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q26" value="3"> 3 - Slightly Disagree</label>
+<label><input type="radio" name="q26" value="4"> 4 - Neutral</label>
+<label><input type="radio" name="q26" value="5"> 5 - Slightly Agree</label>
+<label><input type="radio" name="q26" value="6"> 6 - Agree</label>
+<label><input type="radio" name="q26" value="7"> 7 - Strongly Agree</label>
+</div>
+
+<label>I see myself as someone who is open to new experiences:</label>
+<div class="options">
+<label><input type="radio" name="q27" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q27" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q27" value="3"> 3 - Neutral</label>
+<label><input type="radio" name="q27" value="4"> 4 - Agree</label>
+<label><input type="radio" name="q27" value="5"> 5 - Strongly Agree</label>
+</div>
+
+<label>I see myself as someone who values artistic, aesthetic experiences:</label>
+<div class="options">
+<label><input type="radio" name="q28" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q28" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q28" value="3"> 3 - Neutral</label>
+<label><input type="radio" name="q28" value="4"> 4 - Agree</label>
+<label><input type="radio" name="q28" value="5"> 5 - Strongly Agree</label>
+</div>
+
+<label>I see myself as someone who is thorough and diligent:</label>
+<div class="options">
+<label><input type="radio" name="q29" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q29" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q29" value="3"> 3 - Neutral</label>
+<label><input type="radio" name="q29" value="4"> 4 - Agree</label>
+<label><input type="radio" name="q29" value="5"> 5 - Strongly Agree</label>
+</div>
+
+<label>I see myself as someone who tends to be lazy(Reverse Scoring):</label>
+<div class="options">
+<label><input type="radio" name="q30" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q30" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q30" value="3"> 3 - Neutral</label>
+<label><input type="radio" name="q30" value="4"> 4 - Agree</label>
+<label><input type="radio" name="q30" value="5"> 5 - Strongly Agree</label>
+</div>
+
+<label>I see myself as someone who is outgoing and sociable:</label>
+<div class="options">
+<label><input type="radio" name="q31" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q31" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q31" value="3"> 3 - Neutral</label>
+<label><input type="radio" name="q31" value="4"> 4 - Agree</label>
+<label><input type="radio" name="q31" value="5"> 5 - Strongly Agree</label>
+</div>
+
+<label>I see myself as someone who is reserved(Reverse Scoring):</label>
+<div class="options">
+<label><input type="radio" name="q32" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q32" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q32" value="3"> 3 - Neutral</label>
+<label><input type="radio" name="q32" value="4"> 4 - Agree</label>
+<label><input type="radio" name="q32" value="5"> 5 - Strongly Agree</label>
+</div>
+
+<label>I see myself as someone who is generally trusting:</label>
+<div class="options">
+<label><input type="radio" name="q33" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q33" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q33" value="3"> 3 - Neutral</label>
+<label><input type="radio" name="q33" value="4"> 4 - Agree</label>
+<label><input type="radio" name="q33" value="5"> 5 - Strongly Agree</label>
+</div>
+
+<label>I see myself as someone who tends to find fault with others(Reverse Scoring):</label>
+<div class="options">
+<label><input type="radio" name="q34" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q34" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q34" value="3"> 3 - Neutral</label>
+<label><input type="radio" name="q34" value="4"> 4 - Agree</label>
+<label><input type="radio" name="q34" value="5"> 5 - Strongly Agree</label>
+</div>
+
+<label>I see myself as someone who gets nervous easily:</label>
+<div class="options">
+<label><input type="radio" name="q35" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q35" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q35" value="3"> 3 - Neutral</label>
+<label><input type="radio" name="q35" value="4"> 4 - Agree</label>
+<label><input type="radio" name="q35" value="5"> 5 - Strongly Agree</label>
+</div>
+
+<label>I see myself as someone who remains calm in tense situations(Reverse Scoring):</label>
+<div class="options">
+<label><input type="radio" name="q36" value="1"> 1 - Strongly Disagree</label>
+<label><input type="radio" name="q36" value="2"> 2 - Disagree</label>
+<label><input type="radio" name="q36" value="3"> 3 - Neutral</label>
+<label><input type="radio" name="q36" value="4"> 4 - Agree</label>
+<label><input type="radio" name="q36" value="5"> 5 - Strongly Agree</label>
+</div>
+
+<label>How many hours do you usually sleep per night?</label>
+<div class="options">
+<label><input type="radio" name="q37" value="0"> Less than 4 hours</label>
+<label><input type="radio" name="q37" value="1"> 4-6 hours</label>
+<label><input type="radio" name="q37" value="2"> 6-8 hours</label>
+<label><input type="radio" name="q37" value="3"> More than 8 hours</label>
+</div>
+
+<label>How often do you engage in physical exercise?</label>
+<div class="options">
+<label><input type="radio" name="q38" value="0"> Never</label>
+<label><input type="radio" name="q38" value="1"> Once a week</label>
+<label><input type="radio" name="q38" value="2"> 2-3 times per week</label>
+<label><input type="radio" name="q38" value="3"> Daily</label>
+</div>
+
+<label>How much time do you spend on social media daily?</label>
+<div class="options">
+<label><input type="radio" name="q39" value="0"> Less than 1 hour</label>
+<label><input type="radio" name="q39" value="1"> 1-3 hours</label>
+<label><input type="radio" name="q39" value="2"> 4-6 hours</label>
+<label><input type="radio" name="q39" value="3"> More than 6 hours</label>
+</div>
+
+<label>How often do you socialize with friends or family in person?</label>
+<div class="options">
+<label><input type="radio" name="q40" value="0"> Rarely</label>
+<label><input type="radio" name="q40" value="1"> Once a week</label>
+<label><input type="radio" name="q40" value="2"> Few times a week</label>
+<label><input type="radio" name="q40" value="3"> Daily</label>
+</div>
+
+          <button type="button" class="prev">Previous</button>
+          <button type="submit">Submit</button>
+        </div>
+
+        <p class="success-message" id="successMessage">Thank you! Your response has been recorded. Your mental health score is being analyzed and will be displayed shortly. </p>
+
+        <!-- Optional storage setup
+        // This code can later be extended to submit to Google Sheets using Google Apps Script
+        -->
+         
+      </form>
+      <!--script>
+  const steps = document.querySelectorAll(".step");
+  let currentStep = 0;
+
+  document.querySelector(".next").addEventListener("click", () => {
+    steps[currentStep].classList.remove("active");
+    currentStep++;
+    steps[currentStep].classList.add("active");
+  });
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    steps[currentStep].classList.remove("active");
+    currentStep--;
+    steps[currentStep].classList.add("active");
+  });
+
+  // ✅ Real prediction submit
+  document.getElementById("questionnaire-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const data = {};
+
+    for (let [key, value] of formData.entries()) {
+      if (!isNaN(value)) value = parseInt(value);
+      data[key.replace(/\s+/g, "_")] = value;  // Normalize keys
+    }
+
+    const response = await fetch("http://127.0.0.1:8000/predict", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    document.getElementById("successMessage").innerText =
+      `Prediction:
+      Depression → ${result.depression_level}
+      Life Satisfaction → ${result.life_satisfication_level}
+      Personality → ${result.Big_five_personality_level}`;
+    document.getElementById("successMessage").style.display = "block";
+  });
+</script-->
+      </section>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><strong>Email:</strong> projectmca47@gmail.com</p>
+      <p>Questions, feedback, or just curious? We’d love to hear from you!</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 PsychoPredictor AI. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+  const steps = document.querySelectorAll(".step");
+  let currentStep = 0;
+
+  document.querySelector(".next").addEventListener("click", () => {
+    steps[currentStep].classList.remove("active");
+    currentStep++;
+    steps[currentStep].classList.add("active");
+  });
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    steps[currentStep].classList.remove("active");
+    currentStep--;
+    steps[currentStep].classList.add("active");
+  });
+</script>
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.querySelector(".navbar");
+
+  window.addEventListener("scroll", function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      // Scrolling down → hide navbar
+      navbar.style.top = "-100px"; // adjust if your navbar is taller
+    } else {
+      // Scrolling up → show navbar
+      navbar.style.top = "0";
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+</script>
+</body>
+</html>
