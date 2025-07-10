@@ -378,27 +378,40 @@ footer.footer {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: space-between;  /* Push left and right apart */
+  align-items: center;
+}
+.logo-placeholder {
+  width: 36px;
+  height: 36px;
+  background-color: #e0d4f7;
+  color: #6c63ff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-right: 0.75rem;
+}
+
+
+.nav-left {
+  display: flex;
   align-items: center;
 }
 
-.nav-left {
-  justify-self: start;
-}
-
 .nav-title {
-  justify-self: center;
   font-size: 1.6rem;
-  margin: 0;
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-align: center;
+  font-weight: bold;
 }
 
 .nav-links {
-  justify-self: end;
   display: flex;
   gap: 1.5rem;
 }
